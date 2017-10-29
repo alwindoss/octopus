@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+service OrchestratorService {
+    rpc StartJob(RequestType) returns (ResponseType) {};
+}
+
+message ResponseType {
+    JobResponse jobResponse = 1;
+}
+
+message RequestType {
+    JobRequest jobRequest = 1;
+}
+
+message JobRequest {
+    string type = 1;
+    string payload = 2;
+}
+
+message JobResponse {
+    string id = 1;
+    string payload = 2;
+}
